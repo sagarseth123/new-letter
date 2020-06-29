@@ -1,0 +1,36 @@
+<%- include("partial/header") -%>
+
+    <h1>
+        Home
+    </h1>
+    <div>
+        <p>
+            <%= content %>
+        </p>
+    </div>
+
+    <% newtext.forEach(function(post){ %>
+
+        <h1>
+            <%= post.title %>
+        </h1>
+
+        <div>
+            <p>
+                <%= post.text.substring(0,100)+"..."; %>
+                    <a href="post/<%= post.title %>">Read more</a>
+            </p>
+        </div>
+
+
+
+        <% }) %>
+
+
+            <form action="/" method="post">
+                <button type="submit" class="btn btn-sm btn-secondary">compose</button>
+            </form>
+
+
+
+            <%- include("partial/footer") -%>

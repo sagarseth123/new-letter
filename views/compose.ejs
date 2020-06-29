@@ -1,0 +1,33 @@
+<%- include("partial/header") -%>
+
+    <h1>Compose</h1>
+    <form action="/compose" method="POST">
+
+        <label for="">Title</label><br>
+        <textarea name="head" id="" cols="150" rows="1"></textarea>
+        <br><label for="">Text</label>
+        <br><textarea name="text" id="" cols="150" rows="6"></textarea>
+        <br>
+        <button type="submit" class="btn btn-md btn-primary">submit</button>
+
+    </form>
+
+    <h2 style="margin-top: 2vw; margin-bottom: 1vw;">NEWS</h2>
+    <p style="margin-bottom: 0.5vw;">click on checkbox to delete the news</p>
+    <% news.forEach(news=>{ %>
+        <hr>
+        <form action="/delete" method="POST">
+            <input type="checkbox" name="checkbox" value="<%=news._id %>" onChange="this.form.submit()">
+
+            <%= news.title %>
+        </form>
+        <hr>
+        <% }) %>
+
+
+
+
+
+
+
+            <%- include("partial/footer") -%>
