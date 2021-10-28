@@ -1,5 +1,6 @@
 //jshint esversion:6
 
+require('dotenv').config();
 const express = require("express");
 const bodyParser = require("body-parser");
 const ejs = require("ejs");
@@ -7,7 +8,7 @@ const _ = require("lodash");
 
 
 const mongoose = require("mongoose");
-mongoose.connect('mongodb+srv://sagarseth442:seth4444@cluster0-jgdce.mongodb.net/news-letter', {
+mongoose.connect(process.env.DB, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
 });
@@ -110,3 +111,7 @@ app.post("/", function(req, res) {
 app.listen(process.env.PORT || 3000, function() {
     console.log("Server started on port 3000");
 });
+
+
+
+// https://radiant-plains-64979.herokuapp.com
